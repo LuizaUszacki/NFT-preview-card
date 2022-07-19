@@ -1,0 +1,138 @@
+@use '../utils' as u;
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    background: var(--body-background);
+}
+
+main {
+    @extend .flex;
+    padding: u.rem(16);
+}
+
+.card {
+    background: var(--card-background);
+    width: min(u.rem(350), calc(100% - u.rem(50)));
+    min-width: u.rem(200);
+    height: max(u.rem(600), 100%);
+    padding: u.rem(25);
+    border-radius: u.rem(15);
+    box-shadow: 0 0 u.rem(30) rgba(#000000, 0.3);
+
+    &__container-image {
+        border-radius: u.rem(8);
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: u.rem(25);
+
+        &__img {
+            display: block;
+            width: 100%;
+        }
+
+        &__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            background: var(--cyan-alpha);
+            @extend .flex;
+            opacity: 0;
+            transition: opacity .2s;
+
+            img {
+                height: u.rem(48);
+            }
+        }
+
+        &:hover &__overlay {
+            opacity: 1;
+        }
+    }
+
+    &__container-text {
+
+        .card-title {
+            display: block;
+            margin-bottom: u.rem(15);
+
+
+            @include u.breakpoint-up(medium) {
+                margin-bottom: u.rem(20);
+            }
+        }
+
+        & > p {
+            margin-bottom: u.rem(20);
+        }
+
+        .extra-info {
+            @extend .flex;
+            justify-content: space-between;
+            margin-bottom: u.rem(15);
+
+            &__container {
+                @extend .flex;
+                
+                &.container-eth {
+                    gap: u.rem(5);
+
+                    p {
+                        color: var(--cyan);
+                    }
+
+                    img {
+                        height: u.rem(18);
+                    }
+                }
+
+                &.container-time {
+                    gap: u.rem(7);
+
+                    img {
+                        height: u.rem(17);
+                    }
+                }
+            }
+
+            @include u.breakpoint-up(medium) {
+                margin-bottom: u.rem(24);
+            }
+
+            @include u.breakpoint-down(small) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+    }
+
+    &__container-author {
+        display: flex;
+        align-items: center;
+        border-top: u.rem(2) solid var(--line-color);
+        padding-top: u.rem(15);
+
+
+        &__img {
+            border-radius: 50%;
+            border: u.rem(2) solid var(--white);
+            width: u.rem(35);
+            height: u.rem(35);
+            margin-right: u.rem(15);
+        }
+
+    }
+
+    @include u.breakpoint-down(small) {
+        padding: u.rem(15);
+    }
+}

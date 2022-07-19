@@ -1,0 +1,26 @@
+@use '../utils' as u;
+
+* {
+    font-family: 'Outfit', sans-serif;
+}
+
+h1 {
+    font-size: u.rem(24);
+    font-weight: 700;
+
+}
+
+p {
+    font-size: u.rem(18);
+    color: var(--soft-blue);
+    line-height: 1.5;
+}
+
+.cyan-text-hover {
+    color: var(--white);
+    transition: color .2s;
+
+    &:hover {
+        color: var(--cyan);
+    }
+}
