@@ -44,7 +44,7 @@ main {
   font-family: "Outfit", sans-serif;
 }
 
-h1 {
+h2 {
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -61,6 +61,10 @@ p {
 }
 .cyan-text-hover:hover {
   color: var(--cyan);
+}
+
+.text {
+  display: none;
 }
 
 .flex, .card__container-text .extra-info__container, .card__container-text .extra-info, .card__container-image__overlay, main {
